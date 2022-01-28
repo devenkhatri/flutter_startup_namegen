@@ -4,7 +4,8 @@ Name generator for Startups
 
 ## Our Goal
 
-The objective of this application is to randomly generate names by combining two adjectives or nouns with our own beautiful user interface designs. 
+The objective of this application is to randomly generate names by combining two adjectives or nouns from a list of 5,000 words
+ with our own beautiful user interface designs. 
 
 ## What you will create
 
