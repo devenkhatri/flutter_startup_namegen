@@ -14,6 +14,7 @@ The objective of this application is to randomly generate names by combining two
 - Seperate screen to view suggestions
 - Reset list and saved suggestions
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## App Screenshots
+![Screenshot - 1](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/Screenshot-1.png)
+![Screenshot - 2](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/Screenshot-2.png)
+![Screenshot - 3](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/Screenshot-3.png)
