@@ -17,6 +17,7 @@ The objective of this application is to randomly generate names by combining two
 
 ## Install App
 [Android Play Store](https://play.google.com/store/apps/details?id=com.devengoratela.startupnames)
+[Apple App Store](https://apps.apple.com/us/app/startup-names-generator/id1607533322)
 
 ## App Screenshots
 ![Screenshot - 1](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/Screenshot-1.png)
