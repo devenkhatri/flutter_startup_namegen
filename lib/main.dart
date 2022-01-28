@@ -53,12 +53,13 @@ class _RandomWordsState extends State<RandomWords> {
         ],
       ),
       body: _buildSuggestions(),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: null,
-      //   tooltip: 'Refresh List',
-      //   child: const Icon(Icons.refresh),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: _resetSaved,
+        tooltip: 'Reset List',
+        child: const Icon(Icons.refresh),
+        backgroundColor: Colors.teal,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
@@ -118,6 +119,13 @@ class _RandomWordsState extends State<RandomWords> {
         });
       },
     );
+  }
+
+  void _resetSaved() {
+    setState(() {
+      _suggestions.clear();
+      _saved.clear();
+    });
   }
 
   void _pushSaved() {
