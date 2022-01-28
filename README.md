@@ -1,15 +1,18 @@
 # Startup Name Generator
 
-A new Flutter project.
+Name generator for Startups
 
-## Getting Started
+## Our Goal
 
-This project is a starting point for a Flutter application.
+The objective of this application is to randomly generate names by combining two adjectives or nouns with our own beautiful user interface designs. 
 
-A few resources to get you started if this is your first Flutter project:
+## What you will create
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- List of Random Names generated for Startups
+- Infinite scrolling
+- Ability to save suggestions
+- Seperate screen to view suggestions
+- Reset list and saved suggestions
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
