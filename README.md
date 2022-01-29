@@ -20,6 +20,4 @@ The objective of this application is to randomly generate names by combining two
 [Apple App Store](https://apps.apple.com/us/app/startup-names-generator/id1607533322)
 
 ## App Screenshots
-![Screenshot - 1](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/Screenshot-1.png)
-![Screenshot - 2](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/Screenshot-2.png)
-![Screenshot - 3](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/Screenshot-3.png)
+![Screenshots](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/screenshot.gif)
