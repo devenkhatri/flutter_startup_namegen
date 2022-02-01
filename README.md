@@ -33,9 +33,11 @@ The objective of this application is to randomly generate names by combining two
 
 - First app version rollout
 
-### Work in progress
+### 01-Feb-2022
 
 - New feature: Pull to refresh
 - New feature: Toggle dark/light mode
 - New feature: Copy name to clipboard
-- New feature: Check domain availability
+- New feature: Check domain availability for the saved word
+
+### Work in progress
