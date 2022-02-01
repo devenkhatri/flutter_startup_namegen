@@ -190,6 +190,7 @@ class _RandomWordsState extends State<RandomWords> {
         builder: (context) {
           final tiles = _saved.map(
             (pair) {
+              final domainName = pair.toString() + '.com';
               return ListTile(
                 title: Text(
                   pair.asPascalCase,
@@ -200,8 +201,7 @@ class _RandomWordsState extends State<RandomWords> {
                   _copyToClipboard(pair.asPascalCase);
                 },
                 subtitle: FutureBuilder(
-                  future:
-                      http.get(Uri.parse('http://' + pair.toString() + '.com')),
+                  future: http.get(Uri.parse('http://' + domainName)),
                   builder: (context, snapshot) {
                     bool isAccessible = false;
                     // Widget availabilityStatus = const Widget(
@@ -225,7 +225,7 @@ class _RandomWordsState extends State<RandomWords> {
                         ),
                         const Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: Text('Available'),
+                          child: Text('.com Domain is Available'),
                         ),
                       ];
                     } else {
@@ -236,7 +236,7 @@ class _RandomWordsState extends State<RandomWords> {
                         ),
                         const Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: Text('Not Available'),
+                          child: Text('.com Domain is not Available'),
                         ),
                       ];
                     }
