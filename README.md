@@ -25,7 +25,10 @@ The objective of this application is to randomly generate names by combining two
 
 
 ## App Screenshots
-![Screenshots](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/screenshots.gif)
+<!-- ![Screenshots](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/screenshots.gif) -->
+
+[<img src="https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/screenshots.gif" width="250">](https://github.com/devenkhatri/flutter_startup_namer/blob/main/common/screenshots/screenshots.gif)
+
 
 ## Release Notes
 
