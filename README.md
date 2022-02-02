@@ -41,3 +41,7 @@ The objective of this application is to randomly generate names by combining two
 - New feature: Check domain availability for the saved word
 
 ### Work in progress
+
+- Fix: Retain light/dark mode between app launches
+- Fix: Spell correction in copy message
+- Update: Change domain availability logic to use proper APIs 
