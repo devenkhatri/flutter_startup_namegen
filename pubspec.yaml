@@ -37,6 +37,7 @@ dependencies:
   english_words: ^4.0.0
   adaptive_theme:
   http:
+  share_plus:
 
 dev_dependencies:
   flutter_test:

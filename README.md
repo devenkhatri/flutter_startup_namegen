@@ -43,8 +43,12 @@ The objective of this application is to randomly generate names by combining two
 - New feature: Copy name to clipboard
 - New feature: Check domain availability for the saved word
 
+### 03-Feb-2022
+
+- Fix: Spell correction in copy message
+- Fix: Persist light/dark mode changes across app restarts
+- New feature: Ability to share all the saved words and domain availability status
+
 ### Work in progress
 
-- Fix: Retain light/dark mode between app launches
-- Fix: Spell correction in copy message
 - Update: Change domain availability logic to use proper APIs 

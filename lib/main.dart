@@ -1,15 +1,21 @@
+import 'dart:convert';
+
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:share_plus/share_plus.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final savedThemeMode = await AdaptiveTheme.getThemeMode();
+  runApp(MyApp(savedThemeMode: savedThemeMode));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final AdaptiveThemeMode? savedThemeMode;
+  const MyApp({Key? key, this.savedThemeMode}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -29,30 +35,37 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.teal,
         ),
       ),
-      initial: AdaptiveThemeMode.light,
+      initial: savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
         title: 'Startup Name Generator',
         theme: theme,
         darkTheme: darkTheme,
-        home: const RandomWords(),
+        home: RandomWords(this.savedThemeMode),
       ),
     );
   }
 }
 
 class RandomWords extends StatefulWidget {
-  const RandomWords({Key? key}) : super(key: key);
+  final AdaptiveThemeMode? savedThemeMode;
+  RandomWords(this.savedThemeMode, {Key? key}) : super(key: key);
 
   @override
-  _RandomWordsState createState() => _RandomWordsState();
+  _RandomWordsState createState() => _RandomWordsState(savedThemeMode);
 }
 
 class _RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
   final _saved = <WordPair>{};
   final _biggerFont = const TextStyle(fontSize: 18);
+  final _shareContent = <String>{};
+  final AdaptiveThemeMode? savedThemeMode;
 
   var _isLightTheme = true;
+
+  _RandomWordsState(this.savedThemeMode) {
+    _isLightTheme = savedThemeMode == AdaptiveThemeMode.light;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -175,12 +188,8 @@ class _RandomWordsState extends State<RandomWords> {
   void _copyToClipboard(String inputText) {
     Clipboard.setData(ClipboardData(text: inputText)).then((_) {
       ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Copied work to clipboard !')));
+          const SnackBar(content: Text('Copied word to clipboard !')));
     });
-  }
-
-  Future<http.Response> checkDomainAvailability(String domain) {
-    return http.get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1'));
   }
 
   void _pushSaved() {
@@ -188,6 +197,7 @@ class _RandomWordsState extends State<RandomWords> {
       // Add lines from here...
       MaterialPageRoute<void>(
         builder: (context) {
+          _shareContent.clear();
           final tiles = _saved.map(
             (pair) {
               final domainName = pair.toString() + '.com';
@@ -204,7 +214,6 @@ class _RandomWordsState extends State<RandomWords> {
                   future: http.get(Uri.parse('http://' + domainName)),
                   builder: (context, snapshot) {
                     bool isAccessible = false;
-                    // Widget availabilityStatus = const Widget(
                     List<Widget> children = const <Widget>[];
                     if (snapshot.hasData) {
                       final data = snapshot.data as http.Response;
@@ -216,6 +225,11 @@ class _RandomWordsState extends State<RandomWords> {
                     } else {
                       return const LinearProgressIndicator();
                     }
+
+                    // _shareContent.add(domainName +
+                    // ' - is${isAccessible ? ' NOT' : ''} Available \n');
+                    _shareContent.add(
+                        '[WORD: ${pair.asPascalCase} ,DOMAIN: ${isAccessible ? ' NOT' : ''} Available]');
 
                     if (!isAccessible) {
                       children = <Widget>[
@@ -248,8 +262,6 @@ class _RandomWordsState extends State<RandomWords> {
                     );
                   },
                 ),
-                // subtitle: Text(
-                //     "'${pair.asPascalCase}' is ${available ? 'available' : 'not available'}"),
               );
             },
           );
@@ -263,6 +275,14 @@ class _RandomWordsState extends State<RandomWords> {
           return Scaffold(
             appBar: AppBar(
               title: const Text('Saved Suggestions'),
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      Share.share(_shareContent.toString(),
+                          subject: "Startup Names Generated");
+                    },
+                    icon: const Icon(Icons.share))
+              ],
             ),
             body: ListView(children: divided),
           );
