@@ -41,6 +41,7 @@ class MyApp extends StatelessWidget {
         theme: theme,
         darkTheme: darkTheme,
         home: RandomWords(this.savedThemeMode),
+        debugShowCheckedModeBanner: false,
       ),
     );
   }
