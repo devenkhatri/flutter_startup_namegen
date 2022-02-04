@@ -14,6 +14,12 @@ The objective of this application is to randomly generate names by combining two
 - Ability to save suggestions
 - Seperate screen to view suggestions
 - Reset list and saved suggestions
+- Pull to refresh
+- Toggle dark/light mode
+- Copy name to clipboard
+- Check domain availability for the saved words
+- Ability to share all the saved words and domain availability status
+
 
 ## Install App
 <!-- [Android Play Store](https://play.google.com/store/apps/details?id=com.devengoratela.startupnames) -->
@@ -41,7 +47,7 @@ The objective of this application is to randomly generate names by combining two
 - New feature: Pull to refresh
 - New feature: Toggle dark/light mode
 - New feature: Copy name to clipboard
-- New feature: Check domain availability for the saved word
+- New feature: Check domain availability for the saved words
 
 ### 03-Feb-2022
 
